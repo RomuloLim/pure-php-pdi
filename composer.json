@@ -1,0 +1,17 @@
+{
+    "name": "romulo/pure-php-pdi",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Romulo\\PurePhpPdi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "RomuloLim",
+            "email": "romulo.lf123@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
