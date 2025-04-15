@@ -1,0 +1,13 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Function something\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Pest.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$this contains generic class Pest\\Expectation but does not specify its types\: TValue$#'
+			identifier: missingType.generics
+			count: 1
+			path: tests/Pest.php

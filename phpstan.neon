@@ -1,0 +1,13 @@
+includes:
+    - phpstan-baseline.neon
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests
+        - public
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        - '#^PHPDoc tag @mixin contains unknown class App\\#'
+        - '#PHPDoc tag @var contains unknown class App\\#'
+        - '#Access to an undefined property App\\#'
