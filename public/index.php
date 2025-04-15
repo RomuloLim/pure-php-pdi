@@ -1,2 +1,4 @@
 <?php
-echo 'hello world';
+// @codeCoverageIgnoreStart
+echo 'This is the public/index.php file.';
+// @codeCoverageIgnoreEnd
