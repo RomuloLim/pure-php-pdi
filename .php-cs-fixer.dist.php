@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 $finder = (new PhpCsFixer\Finder())
@@ -14,14 +15,14 @@ return (new PhpCsFixer\Config())
         'array_syntax' => ['syntax' => 'short'],
         'binary_operator_spaces' => [
             'operators' => [
-                '=>' => 'align_double_arrow',
-                '=' => 'align_single_space_minimal'
-            ]
+                '=>' => 'single_space',
+                '=' => 'align_single_space_minimal',
+            ],
         ],
         'no_unused_imports' => true,
         'ternary_operator_spaces' => true,
         'trailing_comma_in_multiline' => [
-            'elements' => ['arrays', 'arguments', 'parameters']
+            'elements' => ['arrays', 'arguments', 'parameters'],
         ],
         'global_namespace_import' => [
             'import_classes' => true,
