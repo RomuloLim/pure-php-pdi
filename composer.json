@@ -20,7 +20,8 @@
     "minimum-stability": "stable",
     "require-dev": {
         "pestphp/pest": "^3.8",
-        "phpstan/phpstan": "^2.1"
+        "phpstan/phpstan": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.75"
     },
     "config": {
         "allow-plugins": {
@@ -30,6 +31,12 @@
     "scripts": {
         "test": [
             "./vendor/bin/pest --coverage --min=80"
+        ],
+        "cs": [
+            "./vendor/bin/php-cs-fixer fix --diff --verbose --dry-run --allow-risky=yes"
+        ],
+        "cs-fix": [
+            "./vendor/bin/php-cs-fixer fix --allow-risky=yes"
         ]
     }
 }
