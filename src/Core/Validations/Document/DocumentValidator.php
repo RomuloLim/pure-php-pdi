@@ -22,9 +22,9 @@ class DocumentValidator
         return $this->documentValidator->isValid($document);
     }
 
-    private function createValidatorInstance(DocumentValidatorEnum $validatorClass): DocumentValidatorContract
+    private function createValidatorInstance(DocumentValidatorEnum $validationType): DocumentValidatorContract
     {
-        $validatorClass = $validatorClass->getValidator();
+        $validatorClass = $validationType->getValidator();
 
         $validatorInstance = new $validatorClass();
 
