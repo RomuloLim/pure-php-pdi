@@ -6,7 +6,7 @@ namespace App\Core\Validations\Document;
 
 use App\Core\Validations\Contracts\DocumentValidatorContract;
 use App\Core\Validations\Enums\DocumentValidatorEnum;
-use http\Exception\RuntimeException;
+use RuntimeException;
 
 class DocumentValidator
 {
