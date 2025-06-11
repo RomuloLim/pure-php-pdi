@@ -12,6 +12,10 @@ class CnpjValidator implements DocumentValidatorContract
     {
         $cnpj = preg_replace('/[^0-9]/', '', $document);
 
+        if (!$cnpj) {
+            return false;
+        }
+
         if (strlen($cnpj) != 14) {
             return false;
         }
@@ -22,9 +26,11 @@ class CnpjValidator implements DocumentValidatorContract
 
         $sum = 0;
         $weights = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+
         for ($i = 0; $i < 12; $i++) {
-            $sum += $cnpj[$i] * $weights[$i];
+            $sum += (int) $cnpj[$i] * $weights[$i];
         }
+
         $remainder = $sum % 11;
         $digit1 = ($remainder < 2) ? 0 : 11 - $remainder;
 
@@ -36,7 +42,7 @@ class CnpjValidator implements DocumentValidatorContract
         $weights = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
         for ($i = 0; $i < 13; $i++) {
-            $sum += $cnpj[$i] * $weights[$i];
+            $sum += (int) $cnpj[$i] * $weights[$i];
         }
 
         $remainder = $sum % 11;

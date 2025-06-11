@@ -9,7 +9,7 @@ use App\Core\Validations\Document\CpfValidator;
 
 enum DocumentValidatorEnum: string
 {
-    case CPF  = 'cpf';
+    case CPF = 'cpf';
     case CNPJ = 'cnpj';
 
     public function getValidator(): string
