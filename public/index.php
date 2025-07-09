@@ -9,11 +9,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 // @codeCoverageIgnoreStart
 
-$validator = new DocumentValidator(DocumentValidatorEnum::CPF);
+$validator = DocumentValidator::forType(DocumentValidatorEnum::CPF);
 
 ds($validator->validate('12345678909'));
 
-$validator = new DocumentValidator(DocumentValidatorEnum::CNPJ);
+$validator = DocumentValidator::forType(DocumentValidatorEnum::CNPJ);
 ds($validator->validate('12345678000195'));
 
 // @codeCoverageIgnoreEnd

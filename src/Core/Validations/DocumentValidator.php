@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Core\Validations;
 
 use App\Core\Validations\Contracts\DocumentValidatorStrategy;
+use App\Core\Validations\Enums\DocumentValidatorEnum;
 
 class DocumentValidator
 {
@@ -15,9 +16,9 @@ class DocumentValidator
         return $this->documentValidator->isValid($document);
     }
 
-    public static function forType(string $documentType): DocumentValidator
+    public static function forType(DocumentValidatorEnum $documentType): DocumentValidator
     {
-        $validator = DocumentValidatorFactory::create($documentType);
+        $validator = DocumentValidatorFactory::create($documentType->value);
 
         return new self($validator);
     }
