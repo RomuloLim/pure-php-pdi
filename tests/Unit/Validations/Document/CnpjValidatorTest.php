@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Core\Validations\Contracts\DocumentValidatorStrategy;
 use App\Core\Validations\Document\CnpjValidator;
 
 it('Should validate a valid CNPJ', function ($cnpj) {
@@ -25,3 +26,9 @@ it('Should invalidate an invalid CNPJ', function ($cnpj) {
     'with letters' => 'invalid-cnpj',
     'empty' => '',
 ]);
+
+it('Should implements DocumentValidatorStrategy interface', function () {
+    $validator = new CnpjValidator();
+
+    expect($validator)->toBeInstanceOf(DocumentValidatorStrategy::class);
+});

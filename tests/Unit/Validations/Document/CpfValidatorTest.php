@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Core\Validations\Contracts\DocumentValidatorStrategy;
 use App\Core\Validations\Document\CpfValidator;
 
 it('Should validate a valid CPF', function (string $cpf) {
@@ -25,3 +26,9 @@ it('Should invalidate an invalid CPF', function (string $cpf) {
     'with letters' => 'invalid-cpf',
     'empty' => '',
 ]);
+
+it('Should implements DocumentValidatorStrategy interface', function () {
+    $validator = new CpfValidator();
+
+    expect($validator)->toBeInstanceOf(DocumentValidatorStrategy::class);
+});
