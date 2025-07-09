@@ -11,12 +11,4 @@ enum DocumentValidatorEnum: string
 {
     case CPF = 'cpf';
     case CNPJ = 'cnpj';
-
-    public function getValidator(): string
-    {
-        return match ($this) {
-            self::CPF => CpfValidator::class,
-            self::CNPJ => CnpjValidator::class,
-        };
-    }
 }

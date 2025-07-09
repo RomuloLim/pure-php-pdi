@@ -6,36 +6,20 @@ namespace App\Core\Validations;
 
 use App\Core\Validations\Contracts\DocumentValidatorStrategy;
 use App\Core\Validations\Enums\DocumentValidatorEnum;
-use RuntimeException;
 
 class DocumentValidator
 {
-    private DocumentValidatorStrategy $documentValidator;
-
-    public function __construct(DocumentValidatorEnum $documentType)
-    {
-        $this->documentValidator = $this->createValidatorInstance($documentType);
-    }
+    public function __construct(private DocumentValidatorStrategy $documentValidator){}
 
     public function validate(string $document): bool
     {
         return $this->documentValidator->isValid($document);
     }
 
-    private function createValidatorInstance(DocumentValidatorEnum $validationType): DocumentValidatorStrategy
+    public static function forType(string $documentType): DocumentValidator
     {
-        $validatorClass = $validationType->getValidator();
+        $validator = DocumentValidatorFactory::create($documentType);
 
-        $validatorInstance = new $validatorClass();
-
-        if (!$validatorInstance instanceof DocumentValidatorStrategy) {
-            throw new RuntimeException(sprintf(
-                'Validator class %s must implement %s',
-                $validatorClass,
-                DocumentValidatorStrategy::class,
-            ));
-        }
-
-        return $validatorInstance;
+        return new self($validator);
     }
 }
