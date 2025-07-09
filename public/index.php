@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Core\Validations\Document\DocumentValidator;
+use App\Core\Validations\DocumentValidator;
 use App\Core\Validations\Enums\DocumentValidatorEnum;
 
 require __DIR__ . '/../vendor/autoload.php';

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Core\Validations\Document;
 
-use App\Core\Validations\Contracts\DocumentValidatorContract;
+use App\Core\Validations\Contracts\DocumentValidatorStrategy;
 
-class CpfValidator implements DocumentValidatorContract
+class CpfValidator implements DocumentValidatorStrategy
 {
     public function isValid(string $document): bool
     {

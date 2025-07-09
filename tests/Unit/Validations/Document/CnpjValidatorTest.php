@@ -9,8 +9,8 @@ it('Should validate a valid CNPJ', function ($cnpj) {
 
     expect($validator->isValid($cnpj))->toBeTrue();
 })->with([
-    '12.345.678/0001-95',
-    '12345678000195'
+    'with dot mask' => '12.345.678/0001-95',
+    'without mask' => '12345678000195'
 ]);
 
 it('Should invalidate an invalid CNPJ', function ($cnpj) {
@@ -18,10 +18,10 @@ it('Should invalidate an invalid CNPJ', function ($cnpj) {
 
     expect($validator->isValid($cnpj))->toBeFalse();
 })->with([
-    '12.345.678/0001-00',
-    '12345678000100',
-    '11111111000191',
-    '00000000000000',
-    'invalid-cnpj',
-    '',
+    'with dots mask' => '12.345.678/0001-00',
+    'without mask' => '12345678000100',
+    'with invalid length' => '1234567800019',
+    'with the same numbers' => '00000000000000',
+    'with letters' => 'invalid-cnpj',
+    'empty' => '',
 ]);
