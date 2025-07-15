@@ -27,7 +27,7 @@ it('Should return a valid document validator strategy', function (DocumentValida
 ]);
 
 it('Should except invalid types', function () {
-    $validator = DocumentValidatorFactory::create('invalid-document-type');
+    DocumentValidatorFactory::create('invalid-document-type');
 })->throws(
     InvalidArgumentException::class,
     'No validator found for document type: invalid-document-type'
