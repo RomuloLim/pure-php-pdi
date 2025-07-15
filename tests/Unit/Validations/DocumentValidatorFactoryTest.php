@@ -11,19 +11,18 @@ use App\Core\Validations\DocumentValidatorFactory;
 use App\Core\Validations\Enums\DocumentValidatorEnum;
 use InvalidArgumentException;
 
-it('Should return a valid document validator strategy', function (DocumentValidatorEnum $strategy, string $instance) {
+it('Should return a valid document validator strategy', function (DocumentValidatorEnum $strategy) {
     $validator = DocumentValidatorFactory::create($strategy->value);
 
-    expect($validator)->toBeInstanceOf($instance);
+    $expectedClass = match ($strategy) {
+        DocumentValidatorEnum::CPF => CpfValidator::class,
+        DocumentValidatorEnum::CNPJ => CnpjValidator::class,
+    };
+
+    expect($validator)->toBeInstanceOf($expectedClass);
 })->with([
-    'CPF' => [
-        'strategy' => DocumentValidatorEnum::CPF,
-        'instance' => CpfValidator::class
-    ],
-    'CNPJ' => [
-        'strategy' => DocumentValidatorEnum::CNPJ,
-        'instance' => CnpjValidator::class
-    ]
+    'CPF' => [DocumentValidatorEnum::CPF],
+    'CNPJ' => [DocumentValidatorEnum::CNPJ],
 ]);
 
 it('Should except invalid types', function () {
