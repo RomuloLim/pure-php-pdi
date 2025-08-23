@@ -6,6 +6,8 @@ parameters:
         - src
         - tests
         - public
+    excludePaths:
+        - tests
     reportUnmatchedIgnoredErrors: false
     ignoreErrors:
         - '#^PHPDoc tag @mixin contains unknown class App\\#'
