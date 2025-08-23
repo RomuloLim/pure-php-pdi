@@ -36,9 +36,4 @@ interface CircuitBreakerInterface
      * Get failure count
      */
     public function getFailureCount(): int;
-
-    /**
-     * Get last failure time
-     */
-    public function getLastFailureTime(): ?int;
 }

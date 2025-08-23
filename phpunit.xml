@@ -12,7 +12,7 @@
 
     <source>
         <include>
-            <directory>public</directory>
+<!--            <directory>public</directory>-->
             <directory>src</directory>
         </include>
     </source>

@@ -72,11 +72,6 @@ class CircuitBreaker implements CircuitBreakerInterface
         return $this->failureCount;
     }
 
-    public function getLastFailureTime(): ?int
-    {
-        return $this->lastFailureTime;
-    }
-
     private function onSuccess(): void
     {
         $this->failureCount = 0;
