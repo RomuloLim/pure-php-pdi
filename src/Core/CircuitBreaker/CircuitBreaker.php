@@ -108,6 +108,19 @@ class CircuitBreaker implements CircuitBreakerInterface
         return (time() - $this->lastFailureTime) >= $this->retryTimeout;
     }
 
+    /**
+     * Get detailed stats about the circuit breaker.
+     *
+     * @return array{
+     *     state: string,
+     *     failure_count: int,
+     *     failure_threshold: int,
+     *     last_failure_time: int|null,
+     *     last_success_time: int|null,
+     *     timeout_duration: int,
+     *     retry_timeout: int
+     * }
+     */
     public function getStats(): array
     {
         return [
