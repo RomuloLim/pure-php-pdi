@@ -16,4 +16,9 @@ ds($validator->validate('12345678909'));
 $validator = DocumentValidator::forType(DocumentValidatorEnum::CNPJ);
 ds($validator->validate('12345678000195'));
 
+
+
+
+
+
 // @codeCoverageIgnoreEnd
